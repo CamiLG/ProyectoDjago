@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<head>
+<title>Adopcion de Animalitos</title></head>
+<body>
+    <header><h1>Listado de Animalitos</h1></header>
+    <section>
+    {% for pet in pets %}
+    <div>
+    <a href="{% url 'pet_detail' pet.id %}">
+    {{pet.name | capfirst}}
+    </a>
+    <p>{{pet.species}}</p>
+    {% if pet.breed %}
+     <p>Raza: {{pet.breed}}</p>
+     {% endif %}
+    </div>
+    {%endfor%}
+    </section>
+</body>
+{% endblock  %}
